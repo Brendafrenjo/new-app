@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function NavBar() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   function handleResize() {
     const navbar = document.querySelector(".navbar");
 
@@ -11,6 +13,10 @@ export default function NavBar() {
     }
   }
 
+  function handleSize() {
+    setWindowWidth(window.innerWidth);
+  }
+
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
@@ -19,8 +25,17 @@ export default function NavBar() {
     };
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", handleSize);
+
+    return () => {
+      window.addEventListener("resize", handleSize);
+    };
+  }, []);
+
   return (
     <div className="NavBar">
+      <div>{windowWidth}</div>
       <nav class="navbar navbar-expand-lg bg-white navbar-light bg-light">
         <a class="navbar-brand" href="/">
           E-Commerce
