@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function NavBar() {
+  function handleResize() {
+    const navbar = document.querySelector(".navbar");
+
+    if (window.innerWidth >= 992) {
+      navbar.classList.add("fixed-top");
+    } else {
+      navbar.classList.remove("fixed-top");
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="NavBar">
       <nav class="navbar navbar-expand-lg bg-white navbar-light bg-light">
@@ -53,6 +71,40 @@ export default function NavBar() {
           </a>
         </div>
       </nav>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <p>Cream</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <p>Cream</p>
     </div>
   );
 }
