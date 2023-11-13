@@ -27,10 +27,6 @@ export default function NavBar() {
 
   useEffect(() => {
     window.addEventListener("resize", handleSize);
-
-    return () => {
-      window.addEventListener("resize", handleSize);
-    };
   }, []);
 
   return (
