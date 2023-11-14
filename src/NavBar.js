@@ -29,7 +29,7 @@ export default function NavBar() {
     window.addEventListener("resize", handleSize);
 
     return () => {
-      window.addEventListener("resize", handleSize);
+      window.removeEventListener("resize", handleSize);
     };
   }, []);
 
