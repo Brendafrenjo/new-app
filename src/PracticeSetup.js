@@ -12,9 +12,24 @@ export default function Practice() {
 
   return (
     <div>
-      <button onClick={() => setResourceType("posts")}>Posts</button>
-      <button onClick={() => setResourceType("users")}>Users</button>
-      <button onClick={() => setResourceType("comments")}>Comments</button>
+      <button
+        onClick={() => setResourceType("posts")}
+        className="btn btn-outline-dark me-2"
+      >
+        Posts
+      </button>
+      <button
+        onClick={() => setResourceType("users")}
+        className="btn btn-outline-dark me-2"
+      >
+        Users
+      </button>
+      <button
+        onClick={() => setResourceType("comments")}
+        className="btn btn-outline-dark me-2"
+      >
+        Comments
+      </button>
       <br />
       <h1>{resourceType}</h1>
       {items.map((item) => {
