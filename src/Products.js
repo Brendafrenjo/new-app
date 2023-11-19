@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function Products() {
-  const [productType, setProductType] = useState("all");
+  const [productType, setProductType] = useState([]);
   const [items, setItems] = useState([]);
 
   useEffect(() => {
