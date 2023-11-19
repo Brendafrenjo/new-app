@@ -4,21 +4,19 @@ import Products from "./Products"
 
 export default function Home() {
   return (
-    <div className="Home">
+    <div>
       <div className="hero">
-        <div class="card">
+        <div class="card text-bg-dark">
           <img
             class="card-img-top img-fluid"
-            src="/Images/background-image.jpg"
+            src="/Images/fashion-background.jpg"
             alt="Background"
           />
           <div class="card-img-overlay">
             <h1 class="card-title">Classy. Stylish. Fabulous</h1>
-            <p class="card-text">
-              <a href="/" class="btn btn-primary">
-                Shop Now!
+              <a href="/" class="btn btn-light primary-button">
+                Shop Now
               </a>
-            </p>
           </div>
         </div>
       </div>
