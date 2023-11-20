@@ -5,7 +5,7 @@ export default function Products() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/categories`)
+    fetch(`https://fakestoreapi.com/products`)
       .then((res) => res.json())
       .then((json) => setItems(json));
   }, [productType]);
@@ -51,8 +51,11 @@ export default function Products() {
     <div className="Products mb-5">
       <h1 className="mt-5 mb-3">Latest Products</h1>
       <hr />
-      <h1>{productType}</h1>
       <div>{showProducts()}</div>
+      <h1>{productType}</h1>
+      {items.map((item) => {
+        return <pre>{JSON.stringify(item)}</pre>;
+      })}
     </div>
   );
 }
