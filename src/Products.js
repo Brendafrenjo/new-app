@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from "react";
 
-
 export default function Products() {
   const [productType, setProductType] = useState("all");
   const [items, setItems] = useState([]);
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
+  const [loading, setLoading] = useState(false);
+  let componentMounted = true;
+
+  async function getProducts() {
+    setLoading(true);
+    const response = await fetch(`https://fakestoreapi.com/products`);
+    if (componentMounted) {
+      setData(await response.clone().json());
+      setFilter(await response.json());
+      setLoading(false);
+    }
+  }
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products`)
-      .then((res) => res.json())
-      .then((json) => setItems(json));
-  }, [productType]);
+    getProducts();
+    return () => {
+      componentMounted = false;
+    };
+  }, []);
 
-  function filterProduct() {
-    
-  }
+  function filterProduct() {}
 
   function showProducts() {
     return (
       <div>
         <button
-          onClick={() => filter(data)}
+          onClick={() => setFilter(data)}
           className="btn btn-outline-success me-2 mt-2"
         >
           All
