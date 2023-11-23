@@ -25,7 +25,10 @@ export default function Products() {
     };
   }, []);
 
-  function filterProduct() {}
+  function filterProduct(category) {
+    const updatedList = data.filter((x) => x.category === category);
+    setFilter(updatedList);
+  }
 
   function showProducts() {
     return (
