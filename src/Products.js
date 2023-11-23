@@ -30,7 +30,7 @@ export default function Products() {
     setFilter(updatedList);
   }
 
-  function showProducts() {
+  function ShowProducts() {
     return (
       <div>
         <button
@@ -91,10 +91,15 @@ export default function Products() {
   return (
     <div className="Products mb-5">
       <div className="container">
+        <div className="row">
+          <div className="col-12">
         <h1 className="mt-5 mb-3">Latest Products</h1>
         <hr />
-        <div>{showProducts()}</div>
+          </div>
+        </div>
+        </div>
       </div>
-    </div>
+     <div className="row justify-content-center mb-5 pb-5">
+      {loading ? <Loading /> : <ShowProducts />}</div>   
   );
 }
