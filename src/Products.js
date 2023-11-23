@@ -64,8 +64,25 @@ export default function Products() {
           Electronics
         </button>
         <h1>{productType}</h1>
-        {items.map((item) => {
-          return <pre>{JSON.stringify(item)}</pre>;
+        {filter.map((product, index) => {
+          <div className="col-md-3 mb-4" key={index}>
+            <div className="card">
+              <img
+                class="card-img-top"
+                src={product.image}
+                alt={product.title}
+              />
+              <div class="card-body">
+                <h5 class="card-title">{product.title}</h5>
+                <p class="card-text">
+                  {product.price}
+                </p>
+                <a href="#" class="btn btn-primary">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+          </div>;
         })}
       </div>
     );
