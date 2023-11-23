@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Rings } from 'react-loader-spinner'
 
 export default function Products() {
-  const [productType, setProductType] = useState("all");
-  const [items, setItems] = useState([]);
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
@@ -77,7 +75,6 @@ function Loading() {
         >
           Electronics
         </button>
-        <h1>{productType}</h1>
         {filter.map((product, index) => {
           <div className="col-md-3 mb-4" key={index}>
             <div className="card">
