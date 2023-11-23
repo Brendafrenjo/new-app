@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Rings } from 'react-loader-spinner'
 
 export default function Products() {
   const [productType, setProductType] = useState("all");
@@ -29,6 +30,19 @@ export default function Products() {
     const updatedList = data.filter((x) => x.category === category);
     setFilter(updatedList);
   }
+
+function Loading() {
+  <Rings
+  height="80"
+  width="80"
+  color="#4fa94d"
+  radius="6"
+  wrapperStyle={{}}
+  wrapperClass=""
+  visible={true}
+  ariaLabel="rings-loading"
+/>
+}
 
   function ShowProducts() {
     return (
@@ -93,13 +107,14 @@ export default function Products() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-        <h1 className="mt-5 mb-3">Latest Products</h1>
-        <hr />
+            <h1 className="mt-5 mb-3">Latest Products</h1>
+            <hr />
           </div>
         </div>
-        </div>
       </div>
-     <div className="row justify-content-center mb-5 pb-5">
-      {loading ? <Loading /> : <ShowProducts />}</div>   
+      <div className="row justify-content-center mb-5 pb-5">
+        {loading ? <Loading /> : <ShowProducts />}
+      </div>
+    </div>
   );
 }
