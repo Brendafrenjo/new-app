@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Rings } from "react-loader-spinner"
+import { Rings } from "react-loader-spinner";
 
 export default function Products() {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data)
+  const [filter, setFilter] = useState(data);
   let componentMounted = true;
 
   useEffect(() => {
-    async function getProducts() {
+    const getProducts = async () => {
       setLoading(true);
       const response = await fetch(`https://fakestoreapi.com/products`);
       if (componentMounted) {
@@ -41,7 +41,7 @@ export default function Products() {
       </div>
     );
   }
-  
+
   function filterProduct(cat) {
     const updatedList = data.filter((x) => x.category === cat);
     setFilter(updatedList);
@@ -80,26 +80,24 @@ export default function Products() {
         >
           Electronics
         </button>
-        {filter.map((product, index) => {
+        {filter.map((product, index) => (
           <div className="col-md-3 mb-4" key={index}>
             <div className="card">
               <img
-                class="card-img-top"
+                className="card-img-top"
                 src={product.image}
                 alt={product.title}
               />
-              <div class="card-body">
-                <h5 class="card-title">{product.title}</h5>
-                <p class="card-text">
-                  {product.price}
-                </p>
-                <a href="#" class="btn btn-primary">
+              <div className="card-body">
+                <h5 className="card-title">{product.title}</h5>
+                <p className="card-text">{product.price}</p>
+                <a href="#" className="btn btn-primary">
                   Buy Now
                 </a>
               </div>
             </div>
-          </div>;
-        })}
+          </div>
+        ))}
       </div>
     );
   }
