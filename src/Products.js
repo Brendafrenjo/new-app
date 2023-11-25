@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Rings } from 'react-loader-spinner'
+import { Rings } from "react-loader-spinner"
 
 export default function Products() {
-  const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data);
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [filter, setFilter] = useState(data)
   let componentMounted = true;
 
   useEffect(() => {
@@ -25,23 +25,27 @@ export default function Products() {
     getProducts();
   }, []);
 
+  function Loading() {
+    return (
+      <div>
+        <Rings
+          height="80"
+          width="80"
+          color="#4fa94d"
+          radius="6"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="rings-loading"
+        />
+      </div>
+    );
+  }
+  
   function filterProduct(cat) {
     const updatedList = data.filter((x) => x.category === cat);
     setFilter(updatedList);
   }
-
-function Loading() {
-  <Rings
-  height="80"
-  width="80"
-  color="#4fa94d"
-  radius="6"
-  wrapperStyle={{}}
-  wrapperClass=""
-  visible={true}
-  ariaLabel="rings-loading"
-/>
-}
 
   function ShowProducts() {
     return (
