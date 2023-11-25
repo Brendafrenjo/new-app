@@ -7,25 +7,26 @@ export default function Products() {
   const [loading, setLoading] = useState(false);
   let componentMounted = true;
 
-  async function getProducts() {
-    setLoading(true);
-    const response = await fetch(`https://fakestoreapi.com/products`);
-    if (componentMounted) {
-      setData(await response.clone().json());
-      setFilter(await response.json());
-      setLoading(false);
-    }
-  }
-
   useEffect(() => {
-    getProducts();
-    return () => {
-      componentMounted = false;
+    async function getProducts() {
+      setLoading(true);
+      const response = await fetch(`https://fakestoreapi.com/products`);
+      if (componentMounted) {
+        setData(await response.clone().json());
+        setFilter(await response.json());
+        setLoading(false);
+      }
+
+      return () => {
+        componentMounted = false;
+      };
     };
+
+    getProducts();
   }, []);
 
-  function filterProduct(category) {
-    const updatedList = data.filter((x) => x.category === category);
+  function filterProduct(cat) {
+    const updatedList = data.filter((x) => x.category === cat);
     setFilter(updatedList);
   }
 
