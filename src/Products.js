@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Rings } from "react-loader-spinner";
+import "./Products.css"
 
 export default function Products() {
   const [loading, setLoading] = useState(false);
@@ -81,17 +82,19 @@ export default function Products() {
           Electronics
         </button>
         {filter.map((product, index) => (
-          <div className="col-md-3 mb-4" key={index}>
+          <div className="col-md-3 mb-4 product-card" key={index}>
             <div className="card">
               <img
-                className="card-img-top"
+                className="card-img-top product-image"
                 src={product.image}
                 alt={product.title}
               />
               <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
-                <p className="card-text">{product.price}</p>
-                <a href="#" className="btn btn-primary">
+                <p className="card-text lead fw-bold product-price">
+                  {product.price}
+                </p>
+                <a href="#" className="btn btn-outline-dark">
                   Buy Now
                 </a>
               </div>
