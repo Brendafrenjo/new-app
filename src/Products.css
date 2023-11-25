@@ -1,0 +1,18 @@
+.product-price {
+  font-size: 14px;
+}
+
+.product-image {
+  height: 300px;
+}
+
+@media (max-width: 960px) {
+  .product-image {
+    height: 200px;
+    width: 200px;
+  }
+
+  .product-card {
+    width: 230px;
+  }
+}
