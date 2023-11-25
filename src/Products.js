@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Rings } from "react-loader-spinner";
-import "./Products.css"
+import "./Products.css";
 
 export default function Products() {
   const [loading, setLoading] = useState(false);
@@ -51,36 +51,42 @@ export default function Products() {
   function ShowProducts() {
     return (
       <div>
-        <button
-          onClick={() => setFilter(data)}
-          className="btn btn-outline-success me-2 mt-2"
-        >
-          All
-        </button>
-        <button
-          onClick={() => filterProduct("men's clothing")}
-          className="btn btn-outline-success me-2 mt-2"
-        >
-          Men's Clothing
-        </button>
-        <button
-          onClick={() => filterProduct("women's clothing")}
-          className="btn btn-outline-success me-2 mt-2"
-        >
-          Women's Clothing
-        </button>
-        <button
-          onClick={() => filterProduct("jewelery")}
-          className="btn btn-outline-success me-2 mt-2"
-        >
-          Jewelery
-        </button>
-        <button
-          onClick={() => filterProduct("electronics")}
-          className="btn btn-outline-success mt-2"
-        >
-          Electronics
-        </button>
+        <div className="buttons flex-container">
+          <div className="box">
+            <div className="buttons-wrapper">
+              <button
+                onClick={() => setFilter(data)}
+                className="btn btn-outline-success me-2 mt-2"
+              >
+                All
+              </button>
+              <button
+                onClick={() => filterProduct("men's clothing")}
+                className="btn btn-outline-success me-2 mt-2"
+              >
+                Men's Clothing
+              </button>
+              <button
+                onClick={() => filterProduct("women's clothing")}
+                className="btn btn-outline-success me-2 mt-2"
+              >
+                Women's Clothing
+              </button>
+              <button
+                onClick={() => filterProduct("jewelery")}
+                className="btn btn-outline-success me-2 mt-2"
+              >
+                Jewelery
+              </button>
+              <button
+                onClick={() => filterProduct("electronics")}
+                className="btn btn-outline-success mt-2"
+              >
+                Electronics
+              </button>
+            </div>
+          </div>
+        </div>
         {filter.map((product, index) => (
           <div className="col-md-3 mb-4 product-card" key={index}>
             <div className="card">
